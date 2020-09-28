@@ -112,4 +112,3 @@ void bounce()
 //         text("press mousekey for reset of spread simulation",width/2,height/2+120);
 //       }
     
-}  
