@@ -71,7 +71,7 @@ PVector input()
 
 
 
-void onEdge()
+/*void onEdge()
 {
     if (pos.x > width+15)
     {
@@ -91,4 +91,4 @@ void onEdge()
       vel.y = vel.y * -0.96f;
       pos.y=0;
     }
-}    
+} */   
