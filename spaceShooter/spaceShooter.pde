@@ -1,8 +1,8 @@
 PImage bg;
-PVector acc;
-PVector pos;
-PVector vel;
-PVector grav;
+PVector acceleration;
+PVector position;
+PVector velocity;
+PVector gravityVector;
 
 float deltaTime;
 long time;
