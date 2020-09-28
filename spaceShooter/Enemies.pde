@@ -1,4 +1,4 @@
-class Enemies
+class Enemy
 
 
 {
@@ -11,7 +11,7 @@ class Enemies
     
     
     //character Constructor, called when we type new Character(x, y);
-    Enemies(float x, float y)
+    Enemy(float x, float y)
     {
         //Set our position when we create the code.
         position = new PVector(x, y);

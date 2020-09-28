@@ -4,6 +4,8 @@ PVector position;
 PVector velocity;
 PVector gravityVector;
 
+int numberofenemies =30;
+Enemy[] enemies;
 float deltaTime;
 long time;
 
@@ -20,6 +22,11 @@ void setup()
 
 void init()
 {
+  enemies = new Enemy[numberofenemies];
+  for(int i = 0; i < enemies.length; i++)
+    {                 
+    enemies[i] = new Enemy(random(width,width-10),random(height,height-10));
+    }
 	player = new Player();
 }
 
@@ -33,6 +40,8 @@ void draw()
 
 //	player.draw();
 	player.update();
+  Enemy.update();
+  Enemy.draw();
 }
 
 void clearBackground()
