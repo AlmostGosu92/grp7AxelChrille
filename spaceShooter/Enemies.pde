@@ -25,6 +25,7 @@ class Enemy
     //Update our character
     void update()
     {
+        bounce();
         position.x += velocity.x;
         position.y += velocity.y;
     }
@@ -37,7 +38,7 @@ class Enemy
       stroke(50,224,50);
       fill(50,224,50);
       float a = velocity.heading();
-      rotate(a-(PI/2));
+      rotate(a+(PI/2));
       strokeWeight(4.5);
       line(-Size/2,0,-Size/2,Size);
       line(Size/2,0,Size/2,Size);

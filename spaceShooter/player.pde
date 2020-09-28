@@ -10,15 +10,33 @@ class Player{
 	float speed = 60;
 	int size = 20;
 	boolean dead = false;
+	float Size = random(20, 25);
 
 	void draw()
 	{
-		
+		push();
+	    translate(position.x,position.y);
+	    stroke(255,224,50);
+	    fill(255,50,50);
+	    velocity = input();
+	    float a = velocity.heading();
+	    rotate(a-(PI/2));
+	    strokeWeight(4.5);
+	    line(-Size/2,0,-Size/2,Size);
+	    line(Size/2,0,Size/2,Size);
+	    ellipse(0,0, Size, Size);
+	    fill(255,75,75);
+	    ellipse(0,0,Size/1.5,Size/1.5);
+	    pop();
 	}
 	
-	void update(){
+	void update()
+	{
+		bounce();
+		position.x += velocity.x;
+		position.y += velocity.y;
 
-		acceleration = input();
+	/*	acceleration = input();
 		acceleration.mult(accMult * deltaTime);
 
 		if (acceleration.mag() == 0){
@@ -37,7 +55,7 @@ class Player{
 		fill(0, 255, 0);
 		ellipse(position.x, position.y, size, size);
 
-		bounce();
+		bounce();*/
 	}
 
 
