@@ -3,6 +3,7 @@ boolean moveRight;
 boolean moveUp;
 boolean moveDown;
 boolean gravity;
+PVector inputVector = new PVector();
 
 float speed =65;
 
@@ -42,24 +43,28 @@ void keyReleased()
   else if (keyCode == DOWN || key == 's')
     moveDown = false;
 }
-void acceleration()
+
+PVector input()
 {
-    if (moveLeft) {
-    acc.x = acc.x -1;
+  inputVector.x = 0;
+  inputVector.y = 0;
+
+  if (moveLeft){
+    inputVector.x --;
   }
-  if (moveRight) {
-    acc.x =acc.x +1;
+  if (moveRight){
+    inputVector.x ++;
   }
-  if (moveUp) {
-    acc.y =acc.y-1;
+  if (moveUp){
+    inputVector.y --;
   }
-  if (moveDown) {
-    acc.y = acc.y +1;
+  if (moveDown){
+    inputVector.y ++;
   }
-  if ((gravity == true) && (pos.y <height-1))
-     { 
-     acc.y+= acc.y + grav.y;
-     }
+
+  inputVector.normalize();
+
+  return inputVector;
 }
 
 
