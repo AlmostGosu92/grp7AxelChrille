@@ -10,6 +10,11 @@ class Player{
 	float speed = 60;
 	int size = 20;
 	boolean dead = false;
+
+	void draw()
+	{
+		
+	}
 	
 	void update(){
 
@@ -34,6 +39,7 @@ class Player{
 
 		bounce();
 	}
+
 
     void bounce()
     {

@@ -38,10 +38,15 @@ void draw()
 	long currentTime = millis();
 	deltaTime = (currentTime - time) * 0.001f;
 
-//	player.draw();
+	player.draw();
 	player.update();
-  Enemy.update();
-  Enemy.draw();
+  	
+  	for (int i = 0; i < enemies.length; i++)
+  	{
+	  	enemies[i].update();
+	  	enemies[i].draw();
+
+  	}
 }
 
 void clearBackground()
