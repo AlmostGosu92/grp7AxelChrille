@@ -6,6 +6,7 @@ PVector gravityVector;
 
 int numberofenemies =30;
 Enemy[] enemies;
+Bullet[] bullets;
 float deltaTime;
 long time;
 
@@ -16,12 +17,12 @@ void setup()
 	size(1280, 800);
 	bg = loadImage("spaceBackground.jpg");
 	ellipseMode(CENTER);
-
 	init();
 }
 
 void init()
 {
+  bullets = new Bullet[100];
   enemies = new Enemy[numberofenemies];
   for(int i = 0; i < enemies.length; i++)
     {
@@ -56,6 +57,14 @@ void draw()
 
 	player.draw();
 	player.update();
+   for (int i = 0; i < bullets.length; i++) {
+    if (bullets[i] == null) {
+      //No bullet, skip to the next one.
+      continue;
+    }
+    else
+      bullets[i].draw();
+   }
   	
   	for (int i = 0; i < enemies.length; i++)
   	{
