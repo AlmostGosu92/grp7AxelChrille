@@ -66,29 +66,3 @@ PVector input()
 
   return inputVector;
 }
-
-
-
-
-
-/*void onEdge()
-{
-    if (pos.x > width+15)
-    {
-      pos.x=-10;
-    }
-    if (pos.x < -15)
-    {
-      pos.x=width+10;
-    }
-    if (pos.y >height)
-    {
-      vel.y = vel.y * -0.96f;
-      pos.y =height;
-    }
-    if (pos.y <0)
-    {
-      vel.y = vel.y * -0.96f;
-      pos.y=0;
-    }
-} */   
