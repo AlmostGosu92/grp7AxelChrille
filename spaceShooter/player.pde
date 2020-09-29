@@ -30,6 +30,9 @@ class Player{
 	    velocity.limit(maxSpeed);
 
 	    move = velocity.copy();
+
+	   // move.mult(speed * deltaTime);
+
 	    position.add(move);
 
 	    float a = move.heading();
