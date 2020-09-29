@@ -3,6 +3,7 @@ boolean moveRight;
 boolean moveUp;
 boolean moveDown;
 boolean gravity;
+boolean mouseDown;
 PVector inputVector = new PVector();
 
 float speed =65;
@@ -32,9 +33,11 @@ void keyPressed()
    }
    if ( key == 32) {  
       //Find empty spot in array, create list.
+
+
       for (int i = 0; i < bullets.length; i++) {
         if (bullets[i] == null) {
-          bullets[i] = new Bullet(player.position.x,player.position.y,player.velocity);
+          bullets[i] = new Bullet(player.position.x,player.position.y,player.move);
           //we are done, break/quit the loop.
           break;
         }
@@ -78,4 +81,24 @@ PVector input()
   inputVector.normalize();
 
   return inputVector;
+}
+
+void mousePressed() 
+{
+  mouseDown = true;
+  
+  PVector mouseVector = new PVector(mouseX , mouseY);
+  mouseVector = mouseVector.sub(player.position);
+  mouseVector.normalize();
+  for (int i = 0; i < bullets.length; i++) {
+        if (bullets[i] == null) {
+          bullets[i] = new Bullet(player.position.x, player.position.y, mouseVector);
+          //we are done, break/quit the loop.
+          break;
+        }
+  }
+}
+
+void mouseReleased() {
+  mouseDown = false;
 }

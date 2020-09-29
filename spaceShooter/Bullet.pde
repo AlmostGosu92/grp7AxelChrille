@@ -2,7 +2,7 @@ class Bullet
 {
    PVector position;
    PVector velocity;
-   float bulletSpeed =3;
+   float bulletSpeed =7;
   Bullet(float x,float y,PVector in)
   {
   position = new PVector(x, y);
@@ -10,7 +10,7 @@ class Bullet
   velocity.mult(bulletSpeed);
   }
 
-void draw() 
+  void draw() 
     {
     position.x+=velocity.x; //+1 här är bara ett test, behöver få en vector som skickar iväg dem åt rätt håll.
     position.y+=velocity.y;

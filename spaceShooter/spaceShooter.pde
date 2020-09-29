@@ -4,7 +4,7 @@ PVector position;
 PVector velocity;
 PVector gravityVector;
 
-int numberofenemies =30;
+int numberofenemies =5;
 Enemy[] enemies;
 Bullet[] bullets;
 float deltaTime;
@@ -58,6 +58,7 @@ void draw()
 
 	player.update();
 	player.draw();
+
    for (int i = 0; i < bullets.length; i++) {
     if (bullets[i] == null) {
       //No bullet, skip to the next one.

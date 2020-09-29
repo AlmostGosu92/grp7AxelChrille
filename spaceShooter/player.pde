@@ -11,16 +11,16 @@ class Player{
 	int size = 20;
 	boolean dead = false;
 	float Size = random(20, 25);
+	float b;
 
 	void draw()
 	{
-		push();
-	    translate(position.x,position.y);
+
 
 	    acceleration = input();
 	    acceleration.mult(accMult * deltaTime);
 
-	    if (acceleration.mag() == 0)
+	    if (acceleration.mag() == 0 )
 	    {
 	    	acceleration.x -= velocity.x * deaccMult * deltaTime;
 	    	acceleration.y -= velocity.y * deaccMult * deltaTime;
@@ -31,14 +31,23 @@ class Player{
 
 	    move = velocity.copy();
 
-	   // move.mult(speed * deltaTime);
+	   	//move.mult(speed * deltaTime);
 
 	    position.add(move);
 
+	    push();
+	    translate(position.x,position.y);
 	    float a = move.heading();
-	    
-	    rotate(a + (PI/2));
-	    
+    	
+	    if (velocity.mag() > 0.02)
+	    {
+		    player.velocity.x = 0;
+    		player.velocity.y = 0;
+    		rotate(a + (PI/2));
+	    	b = a;
+		} else  {
+	    	rotate(b + (PI/2));
+		}
 	    stroke(255,224,50);
 	    fill(255,50,50);
 
@@ -54,6 +63,7 @@ class Player{
 	    ellipse(0,0,Size/1.5,Size/1.5);
 	    
 	    pop();
+	   
 	}
 	
 	void update()
@@ -87,9 +97,9 @@ class Player{
 
     void bounce()
     {
-		if (position.x < 0 || position.x > width)
+		if (position.x < 10 || position.x > width - 10)
 			velocity.x = velocity.x * -1;
-		if (position.y < 0 || position.y > height)
+		if (position.y < 10 || position.y > height - 10)
 			velocity.y = velocity.y * -1;
     }
 }
