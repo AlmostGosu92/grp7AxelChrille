@@ -30,7 +30,7 @@ void keyPressed()
       println("Soar like an eagle you magnificent beast, gravity is no more");
       }
    }
-   if ( key == 32 && frameCount % 3 ==0) {  
+   if ( key == 32) {  
       //Find empty spot in array, create list.
       for (int i = 0; i < bullets.length; i++) {
         if (bullets[i] == null) {

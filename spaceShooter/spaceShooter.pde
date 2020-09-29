@@ -26,24 +26,25 @@ void init()
   enemies = new Enemy[numberofenemies];
   for(int i = 0; i < enemies.length; i++)
     {
-      if (i % 7 == 0)
+      switch (int(random(0,4)))
       {
+      case 0:
       enemies[i] = new Enemy(random(width),random(0,1));
-      }
-      else if (i % 3 == 0)
-      {
+      break;
+      
+      case 1:
       enemies[i] = new Enemy(random(width),random(height,height-5));
-      }
-      else if (i % 5 == 0)
-      {
+      break;
+      
+      case 2:
       enemies[i] = new Enemy(random(0,5),random(height));
+      break;
+     
+      case 3:
+      enemies[i] = new Enemy(random(width,width-5),random(height)); 
+      break;
       }
-      else
-      {
-       enemies[i] = new Enemy(random(width,width-5),random(height)); 
-      }
-    }
-    
+   } 
 	player = new Player();
 }
 
