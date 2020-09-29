@@ -63,6 +63,14 @@ void draw()
       //No bullet, skip to the next one.
       continue;
     }
+    if (bullets[i].position.x >width || bullets[i].position.x <0)
+    {
+    bullets[i] = null;  
+    }
+    if (bullets[i].position.y >height || bullets[i].position.y <0)
+    {
+    bullets[i] = null;  
+    }
     else
       bullets[i].draw();
    }

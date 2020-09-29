@@ -20,7 +20,7 @@ class Player{
 	    fill(255,50,50);
 	    velocity = input();
 	    float a = velocity.heading();
-	    rotate(a-(PI/2));
+	    rotate(a+(PI/2));
 	    strokeWeight(4.5);
 	    line(-Size/2,0,-Size/2,Size);
 	    line(Size/2,0,Size/2,Size);
