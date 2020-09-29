@@ -5,6 +5,7 @@ class Bullet
    float bulletSpeed =7;
    color bulletColor;
    int bulletsize =10;
+   boolean hashit;
   Bullet(float x,float y,PVector in)
   {
     bulletColor = color(255, 255, 0);
@@ -18,10 +19,13 @@ class Bullet
     position = new PVector(x, y);
     velocity = new PVector(random(-1, 2), random(-1, 2));
     velocity.mult(bulletSpeed);
+    hashit =false;
+    
   }
 
   void draw() 
     {
+     
     position.x+=velocity.x; //+1 här är bara ett test, behöver få en vector som skickar iväg dem åt rätt håll.
     position.y+=velocity.y;
 

@@ -24,6 +24,8 @@ void setup()
 
 void init()
 {
+  loop();
+  highscore =0;
   bullets = new Bullet[100];
   enemyBullets = new EnemyBullet[100];
   enemies = new Enemy[numberofenemies];
@@ -77,6 +79,11 @@ void draw()
     bullets[i] = null;  
     continue;
     }
+    if (bullets[i].hashit ==true)
+    {
+    bullets[i] = null;  
+    continue;
+    }
     else
       bullets[i].draw();
    }
@@ -104,10 +111,16 @@ void draw()
    }
 
   	for (int i = 0; i < enemies.length; i++)
-  	{
+    {
+      if (enemies[i] ==null)
+      {
+        continue;
+      }
+  	  {
 	  	enemies[i].update();
 	  	enemies[i].draw();
-  	}
+  	  }
+    }
   // Kollisionskod för player->fiendeskepp ligger här och skvalpar tills vi snyggar upp det--------------------------------------------------------------------------------------------------------------------------   
       for(int j = 0; j < enemies.length; j++)
       {
@@ -120,6 +133,7 @@ void draw()
          fill(240);
          text("Game Over!",width/2,height/2);
          text("Highscore: " + highscore,width/2,height/2+60 );
+         text("Press 'r' to reset " ,width/2,height/2+100 );
           println("jäklar vilken smäll");
           println("highscore: " +highscore);
           noLoop();
@@ -128,10 +142,11 @@ void draw()
        // Kollisionskod för bullets->fiendeskepp ligger här och skvalpar tills vi snyggar upp det--------------------------------------------------------------------------------------------------------------------------   
       for(int j = 0; j < bullets.length; j++)
       {
-          if (bullets[j] == null) {
+          if (bullets[j] == null) 
+          {
           //No bullet, skip to the next one.
           continue;
-      }
+          }
       
         for(int i = 0; i < enemies.length; i++)
         {
@@ -140,13 +155,12 @@ void draw()
         {
           println("vi satte, woohoo");
           highscore +=100;
+          bullets[j].hashit=true;
         } 
         }
       }  
       
-      
-      
-      
+         
 }
 
 void clearBackground()

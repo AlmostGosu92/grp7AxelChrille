@@ -19,6 +19,10 @@ void keyPressed()
     moveUp = true;
   else if (keyCode == DOWN || key == 's')
     moveDown = true;
+   if ( key == 'r')
+   {
+     init();
+   }
   if ( key == 'g')
    { 
     if(gravity== false) 
