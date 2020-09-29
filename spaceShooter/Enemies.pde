@@ -7,7 +7,7 @@ class Enemy
     PVector velocity; //character direction
     boolean enemyTrue = false;
     float Size = random(20,25);
-
+    int hitcounter;
     
     
     //character Constructor, called when we type new Character(x, y);
@@ -20,6 +20,7 @@ class Enemy
         velocity = new PVector();
         velocity.x = random(11) - 5;
         velocity.y = random(11) - 5;
+        hitcounter=0;
     }
 
     //Update our character

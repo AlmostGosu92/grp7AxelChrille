@@ -4,7 +4,7 @@ PVector position;
 PVector velocity;
 PVector gravityVector;
 
-int numberofenemies =5;
+int numberofenemies =10;
 int highscore =0;
 Enemy[] enemies;
 Bullet[] bullets;
@@ -112,10 +112,16 @@ void draw()
 
   	for (int i = 0; i < enemies.length; i++)
     {
-      if (enemies[i] ==null)
+       if (enemies[i] ==null)
+       {
+       continue;
+       }
+      if (enemies[i].hitcounter >=3)
       {
+        enemies[i]= null;
         continue;
       }
+ 
   	  {
 	  	enemies[i].update();
 	  	enemies[i].draw();
@@ -124,6 +130,10 @@ void draw()
   // Kollisionskod för player->fiendeskepp ligger här och skvalpar tills vi snyggar upp det--------------------------------------------------------------------------------------------------------------------------   
       for(int j = 0; j < enemies.length; j++)
       {
+        if (enemies[j] ==null)
+        {
+        continue;
+        }
         boolean krock = roundCollision(player.position.x,player.position.y,player.Size,/*characters[i].iff*/enemies[j].position.x,enemies[j].position.y,enemies[j].Size/*enemies[j].iff*/);
         if (krock)
         {
@@ -150,12 +160,17 @@ void draw()
       
         for(int i = 0; i < enemies.length; i++)
         {
+          if (enemies[i] ==null)
+          {
+          continue;
+          }
         boolean hit = roundCollision(bullets[j].position.x,bullets[j].position.y,bullets[j].bulletsize,/*characters[i].iff*/enemies[i].position.x,enemies[i].position.y,enemies[i].Size/*enemies[j].iff*/);
         if (hit)
         {
           println("vi satte, woohoo");
           highscore +=100;
           bullets[j].hashit=true;
+          enemies[i].hitcounter++;
         } 
         }
       }  
