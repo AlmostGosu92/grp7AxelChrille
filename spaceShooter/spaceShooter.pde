@@ -5,6 +5,7 @@ PVector velocity;
 PVector gravityVector;
 
 int numberofenemies =5;
+int highscore =0;
 Enemy[] enemies;
 Bullet[] bullets;
 Bullet[] enemyBullets;
@@ -101,21 +102,51 @@ void draw()
         enemyBullets[i].draw();
      }
    }
-  	
+
   	for (int i = 0; i < enemies.length; i++)
   	{
 	  	enemies[i].update();
 	  	enemies[i].draw();
   	}
+  // Kollisionskod för player->fiendeskepp ligger här och skvalpar tills vi snyggar upp det--------------------------------------------------------------------------------------------------------------------------   
       for(int j = 0; j < enemies.length; j++)
       {
         boolean krock = roundCollision(player.position.x,player.position.y,player.Size,/*characters[i].iff*/enemies[j].position.x,enemies[j].position.y,enemies[j].Size/*enemies[j].iff*/);
         if (krock)
         {
+         
+         textSize(40);
+         textAlign(CENTER);
+         fill(240);
+         text("Game Over!",width/2,height/2);
+         text("Highscore: " + highscore,width/2,height/2+60 );
           println("jäklar vilken smäll");
+          println("highscore: " +highscore);
           noLoop();
         } 
       } 
+       // Kollisionskod för bullets->fiendeskepp ligger här och skvalpar tills vi snyggar upp det--------------------------------------------------------------------------------------------------------------------------   
+      for(int j = 0; j < bullets.length; j++)
+      {
+          if (bullets[j] == null) {
+          //No bullet, skip to the next one.
+          continue;
+      }
+      
+        for(int i = 0; i < enemies.length; i++)
+        {
+        boolean hit = roundCollision(bullets[j].position.x,bullets[j].position.y,bullets[j].bulletsize,/*characters[i].iff*/enemies[i].position.x,enemies[i].position.y,enemies[i].Size/*enemies[j].iff*/);
+        if (hit)
+        {
+          println("vi satte, woohoo");
+          highscore +=100;
+        } 
+        }
+      }  
+      
+      
+      
+      
 }
 
 void clearBackground()

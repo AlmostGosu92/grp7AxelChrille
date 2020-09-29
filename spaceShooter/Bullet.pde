@@ -4,6 +4,7 @@ class Bullet
    PVector velocity;
    float bulletSpeed =7;
    color bulletColor;
+   int bulletsize =10;
   Bullet(float x,float y,PVector in)
   {
     bulletColor = color(255, 255, 0);
@@ -29,7 +30,7 @@ class Bullet
     //position.y +=bulletvelocity.y;
     push();
     fill(bulletColor);
-    ellipse(position.x, position.y,10,10);
+    ellipse(position.x, position.y,bulletsize,bulletsize);
     pop();
     }
   
