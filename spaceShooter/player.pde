@@ -30,10 +30,9 @@ class Player{
 	    velocity.limit(maxSpeed);
 
 	    move = velocity.copy();
-	    move.mult(speed * deltaTime);
 	    position.add(move);
 
-	    float a = velocity.heading();
+	    float a = move.heading();
 	    
 	    rotate(a + (PI/2));
 	    
