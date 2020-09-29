@@ -56,8 +56,8 @@ void draw()
 	long currentTime = millis();
 	deltaTime = (currentTime - time) * 0.001f;
 
-	player.draw();
 	player.update();
+	player.draw();
    for (int i = 0; i < bullets.length; i++) {
     if (bullets[i] == null) {
       //No bullet, skip to the next one.

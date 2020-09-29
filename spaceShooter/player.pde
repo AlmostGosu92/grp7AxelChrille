@@ -4,10 +4,10 @@ class Player{
 	PVector acceleration = new PVector();
 	PVector velocity = new PVector();
 	PVector move = new PVector();
-	float maxSpeed = 10;
-	float accMult = 45;
+	float maxSpeed = 5;
+	float accMult = 2;
 	float deaccMult = 3;
-	float speed = 60;
+	float speed = 10;
 	int size = 20;
 	boolean dead = false;
 	float Size = random(20, 25);
@@ -16,17 +16,41 @@ class Player{
 	{
 		push();
 	    translate(position.x,position.y);
+
+	    acceleration = input();
+	    acceleration.mult(accMult * deltaTime);
+
+	    if (acceleration.mag() == 0)
+	    {
+	    	acceleration.x -= velocity.x * deaccMult * deltaTime;
+	    	acceleration.y -= velocity.y * deaccMult * deltaTime;
+	    }
+
+	    velocity.add(acceleration);
+	    velocity.limit(maxSpeed);
+
+	    move = velocity.copy();
+	    move.mult(speed * deltaTime);
+	    position.add(move);
+
+	    float a = velocity.heading();
+	    
+	    rotate(a + (PI/2));
+	    
 	    stroke(255,224,50);
 	    fill(255,50,50);
-	    velocity = input();
-	    float a = velocity.heading();
-	    rotate(a+(PI/2));
+
 	    strokeWeight(4.5);
+	    
 	    line(-Size/2,0,-Size/2,Size);
 	    line(Size/2,0,Size/2,Size);
+	    
 	    ellipse(0,0, Size, Size);
+	    
 	    fill(255,75,75);
+	    
 	    ellipse(0,0,Size/1.5,Size/1.5);
+	    
 	    pop();
 	}
 	
