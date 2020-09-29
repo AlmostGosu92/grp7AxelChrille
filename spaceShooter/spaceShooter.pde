@@ -106,8 +106,16 @@ void draw()
   	{
 	  	enemies[i].update();
 	  	enemies[i].draw();
-
   	}
+      for(int j = 0; j < enemies.length; j++)
+      {
+        boolean krock = roundCollision(player.position.x,player.position.y,player.Size,/*characters[i].iff*/enemies[j].position.x,enemies[j].position.y,enemies[j].Size/*enemies[j].iff*/);
+        if (krock)
+        {
+          println("jäklar vilken smäll");
+          noLoop();
+        } 
+      } 
 }
 
 void clearBackground()
