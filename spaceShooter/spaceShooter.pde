@@ -7,6 +7,7 @@ PVector gravityVector;
 int numberofenemies =5;
 Enemy[] enemies;
 Bullet[] bullets;
+Bullet[] enemyBullets;
 float deltaTime;
 long time;
 
@@ -23,6 +24,7 @@ void setup()
 void init()
 {
   bullets = new Bullet[100];
+  enemyBullets = new EnemyBullet[100];
   enemies = new Enemy[numberofenemies];
   for(int i = 0; i < enemies.length; i++)
     {
@@ -76,6 +78,28 @@ void draw()
     }
     else
       bullets[i].draw();
+   }
+
+   if (time % 3 == 0) {
+     
+     for (int i = 0; i < enemyBullets.length; i++) {
+      if (enemyBullets[i] == null) {
+        //No bullet, skip to the next one.
+        continue;
+      }
+      if (enemyBullets[i].position.x >width || enemyBullets[i].position.x <0)
+      {
+      bullets[i] = null;  
+      continue;
+      }
+      if (enemyBullets[i].position.y >height || enemyBullets[i].position.y <0)
+      {
+      enemyBullets[i] = null;  
+      continue;
+      }
+      else
+        enemyBullets[i].draw();
+     }
    }
   	
   	for (int i = 0; i < enemies.length; i++)
