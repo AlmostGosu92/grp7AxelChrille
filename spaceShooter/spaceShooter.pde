@@ -7,9 +7,7 @@ PVector acceleration;
 PVector position;
 PVector velocity;
 PVector gravityVector;
-  
-import processing.sound.*;
-SoundFile file;
+
 int numberofenemies =10;
 int highscore =0;
 Enemy[] enemies;
