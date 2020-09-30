@@ -100,7 +100,7 @@ void mousePressed()
           //we are done, break/quit the loop.
           break;
         }
-        file.play(1,0,1,1,0.5);
+
   }
 }
 
