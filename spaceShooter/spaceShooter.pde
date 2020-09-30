@@ -13,8 +13,10 @@ int highscore =0;
 Enemy[] enemies;
 Bullet[] bullets;
 Bullet[] enemyBullets;
+float timer;
 float deltaTime;
 long time;
+
 
 Player player;
 
@@ -25,6 +27,7 @@ void setup()
 	ellipseMode(CENTER);
 	init();
   file = new SoundFile(this, "LC.wav");
+  timer = 0;
    
   
 }
@@ -59,7 +62,7 @@ void init()
       }
    } 
 	player = new Player();
-player.dead=false;
+  player.dead = false;
 }
 
 void draw()
@@ -69,6 +72,7 @@ void draw()
 
 	long currentTime = millis();
 	deltaTime = (currentTime - time) * 0.001f;
+  timer += deltaTime;
 
 	player.update();
 	player.draw();
@@ -97,27 +101,44 @@ void draw()
       bullets[i].draw();
    }
 
-   if (time % 3 == 0) {
-     
-     for (int i = 0; i < enemyBullets.length; i++) {
-      if (enemyBullets[i] == null) {
-        //No bullet, skip to the next one.
+
+  //code for enemy bullets
+  //=================================================================
+   
+
+  if (timer >= 3) {
+    PVector random = new PVector(random(-1, 2), random(-1, 2));
+    println("timer: "+timer);
+    for (int i = 0; i < enemies.length; i++)
+    { 
+
+      if(enemies[i] == null)
+      {
         continue;
       }
-      if (enemyBullets[i].position.x >width || enemyBullets[i].position.x <0)
-      {
-      bullets[i] = null;  
-      continue;
-      }
-      if (enemyBullets[i].position.y >height || enemyBullets[i].position.y <0)
-      {
-      enemyBullets[i] = null;  
-      continue;
-      }
-      else
-        enemyBullets[i].draw();
-     }
-   }
+
+      for (int j = 0; j < enemyBullets.length; j++) {
+        if (enemyBullets[j] == null) {
+          enemyBullets[j] = new EnemyBullet(enemies[i].position.x, enemies[i].position.y,
+             random);
+          //we are done, break/quit the loop.
+          //break;
+
+        }
+        enemyBullets[j].draw();
+
+
+        //file.play(1, 0.5);
+
+        }
+      
+    }
+
+    timer = 0;
+  }
+
+
+   //=================================================================
 
   	for (int i = 0; i < enemies.length; i++)
     {
@@ -186,7 +207,7 @@ void draw()
 
       }  
       
-    time += currentTime;   
+    time = currentTime;   
 }
 
 void clearBackground()

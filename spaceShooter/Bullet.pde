@@ -8,7 +8,7 @@ class Bullet
    boolean hashit;
   Bullet(float x,float y,PVector in)
   {
-    bulletColor = color(255, 255, 0);
+    bulletColor = color(128, 255, 0);
     position = new PVector(x, y);
     velocity=in.copy();
     velocity.mult(bulletSpeed);
@@ -24,7 +24,7 @@ class Bullet
   }
 
   void draw() 
-    {
+  {
      
     position.x+=velocity.x; //+1 här är bara ett test, behöver få en vector som skickar iväg dem åt rätt håll.
     position.y+=velocity.y;
@@ -36,8 +36,21 @@ class Bullet
     fill(bulletColor);
     ellipse(position.x, position.y,bulletsize,bulletsize);
     pop();
-    }
+  }
   
+/*  void playerShoot()
+  {
+    PVector mouseVector = new PVector(mouseX , mouseY);
+    mouseVector = mouseVector.sub(player.position);
+    mouseVector.normalize();
+    for (int i = 0; i < bullets.length; i++) {
+        if (bullets[i] == null) {
+          bullets[i] = new Bullet(player.position.x, player.position.y, mouseVector);
+          //we are done, break/quit the loop.
+          break;
+        }
 
-
+        file.play(1, 0.5);
+    }
+  }*/
 }

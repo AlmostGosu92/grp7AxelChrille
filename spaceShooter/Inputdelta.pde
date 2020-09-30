@@ -19,7 +19,7 @@ void keyPressed()
     moveUp = true;
   else if (keyCode == DOWN || key == 's')
     moveDown = true;
-   if ( key == 'r' && player.dead==true)
+   if ( key == 'r')
    {
      init();
    }
@@ -102,6 +102,7 @@ void mousePressed()
         }
 
         file.play(1, 0.5);
+
   }
 }
 
