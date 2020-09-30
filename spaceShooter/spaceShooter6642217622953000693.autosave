@@ -3,7 +3,6 @@ PVector acceleration;
 PVector position;
 PVector velocity;
 PVector gravityVector;
-  
 import processing.sound.*;
 SoundFile file;
 int numberofenemies =10;
@@ -22,14 +21,12 @@ void setup()
 	bg = loadImage("spaceBackground.jpg");
 	ellipseMode(CENTER);
 	init();
-  file = new SoundFile(this, "LC.wav");
-   
+   file = new SoundFile(this, "LC.wav");
   
 }
 
 void init()
 {
-  
   loop();
   highscore =0;
   bullets = new Bullet[100];
@@ -57,7 +54,6 @@ void init()
       }
    } 
 	player = new Player();
-player.dead=false;
 }
 
 void draw()
@@ -154,7 +150,6 @@ void draw()
           println("jäklar vilken smäll");
           println("highscore: " +highscore);
           noLoop();
-          player.dead=true;
         } 
       } 
        // Kollisionskod för bullets->fiendeskepp ligger här och skvalpar tills vi snyggar upp det--------------------------------------------------------------------------------------------------------------------------   
