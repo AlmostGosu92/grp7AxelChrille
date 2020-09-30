@@ -106,7 +106,6 @@ void draw()
    
 
   if (timer >= 3) {
-    PVector random = new PVector(random(-1, 2), random(-1, 2));
     println("timer: "+timer);
     for (int i = 0; i < enemies.length; i++)
     { 
@@ -118,24 +117,61 @@ void draw()
 
       for (int j = 0; j < enemyBullets.length; j++) {
         if (enemyBullets[j] == null) {
+          PVector random = new PVector(random(-1, 2), random(-1, 2));
           enemyBullets[j] = new EnemyBullet(enemies[i].position.x, enemies[i].position.y,
              random);
           //we are done, break/quit the loop.
-          //break;
+          break;
 
         }
-        enemyBullets[j].draw();
 
-
-        //file.play(1, 0.5);
-
-        }
+      }
       
     }
 
     timer = 0;
   }
+  //remove enemyBullets if out of screen or hit, otherwise
+  for(int i = 0; i < enemyBullets.length; i++)
+  {
+    if (enemyBullets[i] == null)
+    {
+      continue;
+    }
+    if (enemyBullets[i].position.x >width || enemyBullets[i].position.x <0)
+    {
+      enemyBullets[i] = null;  
+      continue;
+    }
+    if (enemyBullets[i].position.y >height || enemyBullets[i].position.y <0)
+    {
+      enemyBullets[i] = null;  
+      continue;
+    }
+    if (enemyBullets[i].hashit ==true)
+    {
+      enemyBullets[i] = null;  
+      continue;
+    }
+    else
+    {
+      enemyBullets[i].draw();
+    }  
+  }
 
+    for (int i = 0; i < enemyBullets.length; i++)
+    { 
+      boolean playerHit = false;
+      if (enemyBullets[i] != null)
+      {
+        playerHit = roundCollision(player.position.x, player.position.y, player.Size,
+          enemyBullets[i].position.x, enemyBullets[i].position.y, enemyBullets[i].bulletsize);
+      }
+      if (playerHit)
+      {
+        gameOver();
+      }
+    }
 
    //=================================================================
 
@@ -166,17 +202,7 @@ void draw()
         boolean krock = roundCollision(player.position.x,player.position.y,player.Size,/*characters[i].iff*/enemies[j].position.x,enemies[j].position.y,enemies[j].Size/*enemies[j].iff*/);
         if (krock)
         {
-         
-         textSize(40);
-         textAlign(CENTER);
-         fill(240);
-         text("Game Over!",width/2,height/2);
-         text("Highscore: " + highscore,width/2,height/2+60 );
-         text("Press 'r' to reset " ,width/2,height/2+100 );
-          println("jäklar vilken smäll");
-          println("highscore: " +highscore);
-          noLoop();
-          player.dead=true;
+         gameOver();
         } 
       } 
        // Kollisionskod för bullets->fiendeskepp ligger här och skvalpar tills vi snyggar upp det--------------------------------------------------------------------------------------------------------------------------   
@@ -192,16 +218,16 @@ void draw()
         {
           if (enemies[i] ==null)
           {
-          continue;
+            continue;
           }
-        boolean hit = roundCollision(bullets[j].position.x,bullets[j].position.y,bullets[j].bulletsize,/*characters[i].iff*/enemies[i].position.x,enemies[i].position.y,enemies[i].Size/*enemies[j].iff*/);
-        if (hit)
-        {
-          println("vi satte, woohoo");
-          highscore +=100;
-          bullets[j].hashit=true;
-          enemies[i].hitcounter++;
-        } 
+          boolean hit = roundCollision(bullets[j].position.x,bullets[j].position.y,bullets[j].bulletsize,/*characters[i].iff*/enemies[i].position.x,enemies[i].position.y,enemies[i].Size/*enemies[j].iff*/);
+          if (hit)
+          {
+            println("vi satte, woohoo");
+            highscore +=100;
+            bullets[j].hashit=true;
+            enemies[i].hitcounter++;
+          } 
         }
 
       }  
@@ -214,4 +240,16 @@ void clearBackground()
 
 	fill(255, 255, 255);
 	rect(0, 0, width, height);
+}
+
+void gameOver()
+{
+  textSize(40);
+  textAlign(CENTER);
+  fill(240);
+  text("Game Over!",width/2,height/2);
+  text("Highscore: " + highscore,width/2,height/2+60 );
+  text("Press 'r' to reset " ,width/2,height/2+100 );
+  noLoop();
+  player.dead=true;
 }

@@ -5,6 +5,7 @@ class Bullet
    float bulletSpeed =7;
    color bulletColor;
    int bulletsize =10;
+   int maxSpeed = 8;
    boolean hashit;
   Bullet(float x,float y,PVector in)
   {
@@ -12,6 +13,7 @@ class Bullet
     position = new PVector(x, y);
     velocity=in.copy();
     velocity.mult(bulletSpeed);
+    velocity.limit(maxSpeed);
   }
 
   Bullet(float x, float y, PVector in, boolean bullet) 

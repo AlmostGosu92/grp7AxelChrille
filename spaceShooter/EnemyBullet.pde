@@ -9,6 +9,7 @@ class EnemyBullet extends Bullet
 		position = new PVector(x, y);
 		velocity = in.copy();
 		velocity.mult(bulletSpeed);
+		velocity.limit(maxSpeed);
 
 	}
 
