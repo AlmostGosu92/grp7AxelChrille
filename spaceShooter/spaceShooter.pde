@@ -1,3 +1,7 @@
+import processing.sound.*;
+
+SoundFile file;
+
 PImage bg;
 PVector acceleration;
 PVector position;
@@ -181,9 +185,10 @@ void draw()
           enemies[i].hitcounter++;
         } 
         }
+
       }  
       
-         
+    time += currentTime;   
 }
 
 void clearBackground()
