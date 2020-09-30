@@ -22,6 +22,7 @@ void setup()
 	ellipseMode(CENTER);
 	init();
    file = new SoundFile(this, "LC.wav");
+   
   
 }
 
