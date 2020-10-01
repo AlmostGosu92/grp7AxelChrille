@@ -109,7 +109,6 @@ void draw()
    
 
   if (timer >= 3) {
-    println("timer: "+timer);
     for (int i = 0; i < enemies.length; i++)
     { 
 
@@ -244,7 +243,6 @@ void draw()
           boolean hit = roundCollision(bullets[j].position.x,bullets[j].position.y,bullets[j].bulletsize,/*characters[i].iff*/enemies[i].position.x,enemies[i].position.y,enemies[i].Size/*enemies[j].iff*/);
           if (hit)
           {
-            println("vi satte, woohoo");
             score +=100;
             bullets[j].hashit=true;
             enemies[i].hitcounter++;
