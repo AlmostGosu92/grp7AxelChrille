@@ -36,7 +36,7 @@ void setup()
   mainTheme.loop(1, 0.2);
   playerFireSound = new SoundFile(this, "LC.wav");
   timer = 0;
-   starship = loadShape("starship.svg");
+  starship = loadShape("spaceship.svg");
   
 }
 
