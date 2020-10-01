@@ -1,6 +1,7 @@
 import processing.sound.*;
 
-SoundFile file;
+SoundFile playerFireSound;
+SoundFile mainTheme;
 
 PImage bg;
 PVector acceleration;
@@ -27,7 +28,9 @@ void setup()
 	bg = loadImage("spaceBackground.jpg");
 	ellipseMode(CENTER);
 	init();
-  file = new SoundFile(this, "LC.wav");
+  mainTheme = new SoundFile(this, "MainTheme.wav");
+  mainTheme.loop(1, 0.2);
+  playerFireSound = new SoundFile(this, "LC.wav");
   timer = 0;
    
   
