@@ -46,6 +46,7 @@ void setup()
   enemyBulletModel = loadImage("laserRed.png");
   playerBulletModel = loadImage("laserGreen.png");
   playerMineModel = loadImage("laserGreenMine.png");
+  playerMineModel.resize(0,25);
   playerFireSound = new SoundFile(this, "LC.wav");
   timer = 0;
   //starship = loadShape("spaceship.svg");
@@ -265,7 +266,12 @@ void draw()
           if (hit)
           {
             score +=100;
+            
             bullets[j].hashit=true;
+            if (bullets[j] instanceof Mine)
+            {
+            enemies[i].hitcounter =3;
+            }
             enemies[i].hitcounter++;
           } 
         }

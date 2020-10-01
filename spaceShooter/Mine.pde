@@ -17,7 +17,8 @@ int minesize=12;
     position.y+=velocity.y;
     bulletColor = color(255, 0, 255);
     fill(bulletColor);
-    ellipse(position.x, position.y,minesize,minesize);
+    image(playerMineModel,position.x-11,position.y-11);
+    //ellipse(position.x, position.y,minesize,minesize);
     pop();
   }
 }
