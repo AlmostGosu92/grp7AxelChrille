@@ -1,5 +1,8 @@
 class Mine extends Bullet
 {
+int minesize=12;
+
+
   Mine(float x, float y, PVector in)
   {
     super(x, y, in);
@@ -14,7 +17,7 @@ class Mine extends Bullet
     position.y+=velocity.y;
     bulletColor = color(255, 0, 255);
     fill(bulletColor);
-    ellipse(position.x, position.y,bulletsize,bulletsize);
+    ellipse(position.x, position.y,minesize,minesize);
     pop();
   }
 }
