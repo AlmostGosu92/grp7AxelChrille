@@ -32,6 +32,7 @@ void setup()
 	size(1280, 800);
 	bg = loadImage("spaceBackground.jpg");
   fiende = loadImage("enemyShip.png");
+  fiende.resize(0, 40);
 	ellipseMode(CENTER);
 	init();
   mainTheme = new SoundFile(this, "MainTheme.wav");

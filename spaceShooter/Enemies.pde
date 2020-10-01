@@ -36,17 +36,17 @@ class Enemy
 
       push();
       translate(position.x,position.y);
-      image(fiende, 0, 0);
-      stroke(50,224,50);
-      fill(50,224,50);
       float a = velocity.heading();
       rotate(a+(PI/2));
+      image(fiende, -20, -20);
+     /* stroke(50,224,50);
+      fill(50,224,50);
       strokeWeight(4.5);
       line(-Size/2,0,-Size/2,Size);
       line(Size/2,0,Size/2,Size);
       ellipse(0,0, Size, Size);
       fill(75,230,75);
-      ellipse(0,0,Size/1.5,Size/1.5);
+      ellipse(0,0,Size/1.5,Size/1.5);*/
       pop();
     }
 
