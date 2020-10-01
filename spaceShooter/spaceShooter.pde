@@ -264,7 +264,7 @@ void clearBackground()
 
 void gameOver()
 {
-  if(score > highscore);
+  if(score > highscore)
   {
     highscore = score;
   }
