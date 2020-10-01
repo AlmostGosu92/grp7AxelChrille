@@ -26,7 +26,7 @@ class Player{
 	    ellipse(0,0, Size, Size);
 	    
 	    fill(255,75,75);
-	    
+	    shape(starship, 0, 0,Size*1.5,Size*1.5);
 	    ellipse(0,0,Size/1.5,Size/1.5);
 	    
 	    pop();   

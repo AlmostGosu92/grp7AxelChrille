@@ -1,7 +1,7 @@
 import processing.sound.*;
 
 SoundFile file;
-
+PShape starship;
 PImage bg;
 PVector acceleration;
 PVector position;
@@ -29,7 +29,7 @@ void setup()
 	init();
   file = new SoundFile(this, "LC.wav");
   timer = 0;
-   
+   starship = loadShape("starship.svg");
   
 }
 
