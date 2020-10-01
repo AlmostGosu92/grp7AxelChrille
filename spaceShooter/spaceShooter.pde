@@ -9,6 +9,7 @@ PVector velocity;
 PVector gravityVector;
 
 int numberofenemies =10;
+int score =0;
 int highscore =0;
 Enemy[] enemies;
 Bullet[] bullets;
@@ -36,7 +37,8 @@ void init()
 {
   
   loop();
-  highscore =0;
+  score=0;
+  //highscore =0;
   bullets = new Bullet[100];
   enemyBullets = new EnemyBullet[100];
   enemies = new Enemy[numberofenemies];
@@ -242,14 +244,14 @@ void draw()
           if (hit)
           {
             println("vi satte, woohoo");
-            highscore +=100;
+            score +=100;
             bullets[j].hashit=true;
             enemies[i].hitcounter++;
           } 
         }
 
       }  
-      
+      text("Score: " + score,width-200,40 );
     time = currentTime;   
 }
 
@@ -262,12 +264,17 @@ void clearBackground()
 
 void gameOver()
 {
+  if(score > highscore);
+  {
+    highscore = score;
+  }
   textSize(40);
   textAlign(CENTER);
   fill(240);
   text("Game Over!",width/2,height/2);
-  text("Highscore: " + highscore,width/2,height/2+60 );
-  text("Press 'r' to reset " ,width/2,height/2+100 );
+  text("Your score: " + score,width/2,height/2+60 );
+  text("Highscore: " + highscore,width/2,height/2+100 );
+  text("Press 'r' to reset " ,width/2,height/2+140 );
   noLoop();
   player.dead=true;
 }
