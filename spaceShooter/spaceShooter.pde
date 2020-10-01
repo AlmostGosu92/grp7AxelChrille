@@ -9,6 +9,9 @@ SoundFile mainTheme;
 PImage fiende;
 PImage bg;
 PImage playerShip;
+PImage enemyBulletModel;
+PImage playerBulletModel;
+PImage playerMineModel;
 
 PVector acceleration;
 PVector position;
@@ -40,6 +43,9 @@ void setup()
 	init();
   mainTheme = new SoundFile(this, "MainTheme.wav");
   mainTheme.loop(1, 0.2);
+  enemyBulletModel = loadImage("laserRed.png");
+  playerBulletModel = loadImage("laserGreen.png");
+  playerMineModel = loadImage("laserGreenMine.png");
   playerFireSound = new SoundFile(this, "LC.wav");
   timer = 0;
   //starship = loadShape("spaceship.svg");
@@ -92,7 +98,7 @@ void draw()
 	player.update();
 	player.draw();
 
-   for (int i = 0; i < bullets.length; i++) {
+  for (int i = 0; i < bullets.length; i++) {
     if (bullets[i] == null) {
       //No bullet, skip to the next one.
       continue;
@@ -113,8 +119,10 @@ void draw()
     continue;
     }
     else
+    {
       bullets[i].draw();
-   }
+    }
+  }
 
 
   //code for enemy bullets

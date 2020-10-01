@@ -1,6 +1,5 @@
 class EnemyBullet extends Bullet 
 {
-	boolean enemy;
 
 	EnemyBullet(float x, float y, PVector in)
 	{
@@ -10,6 +9,7 @@ class EnemyBullet extends Bullet
 		velocity = in.copy();
 		velocity.mult(bulletSpeed);
 		velocity.limit(maxSpeed);
+		enemy = true;
 
 	}
 

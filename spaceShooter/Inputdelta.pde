@@ -4,6 +4,7 @@ boolean moveUp;
 boolean moveDown;
 boolean gravity;
 boolean mouseDown;
+boolean spacebarPress;
 PVector inputVector = new PVector();
 
 float speed =65;

@@ -1,12 +1,14 @@
 class Bullet
 {
-   PVector position;
-   PVector velocity;
-   float bulletSpeed =7;
-   color bulletColor;
-   int bulletsize =10;
-   int maxSpeed = 8;
-   boolean hashit;
+  PVector position;
+  PVector velocity;
+  float bulletSpeed =7;
+  color bulletColor;
+  int bulletsize =10;
+  int maxSpeed = 8;
+  boolean hashit;
+  boolean enemy = false;
+
   Bullet(float x,float y,PVector in)
   {
     bulletColor = color(128, 255, 0);
@@ -32,16 +34,28 @@ class Bullet
     position.y+=velocity.y;
 
     
-    //position.x +=bulletvelocity.x;
+    //position.x +=bulletvelocity.x;s
     //position.y +=bulletvelocity.y;
     push();
-    fill(bulletColor);
-    ellipse(position.x, position.y,bulletsize,bulletsize);
+    translate(position.x, position.y);
+    float a = velocity.heading();
+    rotate(a + (PI/2));
+    if (enemy)
+    {
+      image(enemyBulletModel, 0 - (bulletsize / 2), 0 - (bulletsize / 2));
+    }
+    else
+    {  
+      image(playerBulletModel, 0 - (bulletsize / 2), 0 - (bulletsize / 2));
+    }
+
+    /*fill(bulletColor);
+    ellipse(position.x, position.y,bulletsize,bulletsize);*/
     pop();
   }
   
 /*  void playerShoot()
-  {
+  {a
     PVector mouseVector = new PVector(mouseX , mouseY);
     mouseVector = mouseVector.sub(player.position);
     mouseVector.normalize();
