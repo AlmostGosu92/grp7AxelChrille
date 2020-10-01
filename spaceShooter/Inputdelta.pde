@@ -26,16 +26,18 @@ void keyPressed()
    }
   if ( key == 'g')
    { 
-    if(gravity== false) 
-      {
-      gravity = true;
-      println("Gravity is active, you should've worked out more mr.Ballstrong");
-      }
-      else 
-      {gravity = false;
-      println("Soar like an eagle you magnificent beast, gravity is no more");
-      }
+     saveFrame();
    }
+    //if(gravity== false) 
+    //  {
+    //  gravity = true;
+    //  println("Gravity is active, you should've worked out more mr.Ballstrong");
+    //  }
+    //  else 
+    //  {gravity = false;
+    //  println("Soar like an eagle you magnificent beast, gravity is no more");
+    //  }
+     //}
    if ( key == 32) {  
       //Find empty spot in array, create list.
 

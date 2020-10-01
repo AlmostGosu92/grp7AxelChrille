@@ -38,8 +38,8 @@ class Player{
 	
 	void update()
 	{
-		bounce();
-		acceleration = input();
+		 
+		 acceleration = input();
 	    acceleration.mult(accMult * deltaTime);
 
 	    if (acceleration.mag() == 0 )
@@ -52,18 +52,16 @@ class Player{
 	    velocity.limit(maxSpeed);
 
 	    move = velocity.copy();
-
 	   	move.mult(speed * deltaTime);
-
 	    position.add(move);
 
 	    push();
 	    translate(position.x,position.y);
 
-
-		position.x += velocity.x;
-		position.y += velocity.y;
-		pop();
+		  position.x += velocity.x;
+		  position.y += velocity.y;
+		  pop();
+      bounce();
 	}
 
 
