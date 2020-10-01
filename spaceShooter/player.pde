@@ -13,12 +13,13 @@ class Player{
 	float Size = random(20, 25);
 	float b;
 
+
 	void draw()
 	{   
 	    push();
 	    translate(position.x, position.y);
 	    float a = move.heading();
-    	
+
 	    if (velocity.mag() > 0.02)
 	    {
 		    player.velocity.x = 0;

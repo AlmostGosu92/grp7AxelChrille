@@ -36,6 +36,7 @@ class Enemy
 
       push();
       translate(position.x,position.y);
+      image(fiende, 0, 0);
       stroke(50,224,50);
       fill(50,224,50);
       float a = velocity.heading();

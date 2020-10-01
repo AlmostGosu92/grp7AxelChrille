@@ -6,8 +6,9 @@ PShape starship;
 SoundFile playerFireSound;
 SoundFile mainTheme;
 
-
+PImage fiende;
 PImage bg;
+
 PVector acceleration;
 PVector position;
 PVector velocity;
@@ -30,6 +31,7 @@ void setup()
 {
 	size(1280, 800);
 	bg = loadImage("spaceBackground.jpg");
+  fiende = loadImage("enemyShip.png");
 	ellipseMode(CENTER);
 	init();
   mainTheme = new SoundFile(this, "MainTheme.wav");
