@@ -41,7 +41,7 @@ void keyPressed()
 
       for (int i = 0; i < bullets.length; i++) {
         if (bullets[i] == null) {
-          bullets[i] = new Bullet(player.position.x,player.position.y,player.move);
+          bullets[i] = new Mine(player.position.x,player.position.y,player.move);
           //we are done, break/quit the loop.
           break;
         }
