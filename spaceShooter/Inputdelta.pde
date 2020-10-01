@@ -101,7 +101,7 @@ void mousePressed()
           break;
         }
   }
-  file.play(1, 0.5);
+  playerFireSound.play(1, 0.2);
 }
 
 void mouseReleased() {
