@@ -64,6 +64,7 @@ void init()
       }
    } 
 	player = new Player();
+textSize(15);
 }
 
 void draw()
