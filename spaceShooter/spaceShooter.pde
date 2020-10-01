@@ -1,13 +1,14 @@
 import processing.sound.*;
 
 
-PShape starship;
+//PShape starship;
 
 SoundFile playerFireSound;
 SoundFile mainTheme;
 
 PImage fiende;
 PImage bg;
+PImage playerShip;
 
 PVector acceleration;
 PVector position;
@@ -33,13 +34,15 @@ void setup()
 	bg = loadImage("spaceBackground.jpg");
   fiende = loadImage("enemyShip.png");
   fiende.resize(0, 40);
+  playerShip = loadImage("playerShip.png");
+  playerShip.resize(0, 40);
 	ellipseMode(CENTER);
 	init();
   mainTheme = new SoundFile(this, "MainTheme.wav");
   mainTheme.loop(1, 0.2);
   playerFireSound = new SoundFile(this, "LC.wav");
   timer = 0;
-  starship = loadShape("spaceship.svg");
+  //starship = loadShape("spaceship.svg");
   
 }
 

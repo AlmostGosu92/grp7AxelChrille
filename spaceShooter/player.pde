@@ -29,7 +29,9 @@ class Player{
 		} else  {
 	    	rotate(b + (PI/2));
 		}
-	    shape(starship, -20, -20,Size*2,Size*2);
+	    image(playerShip, -20, -20);
+
+	    //(starship, -20, -20,Size*2,Size*2);
 	    
 	    pop();   
 	}
