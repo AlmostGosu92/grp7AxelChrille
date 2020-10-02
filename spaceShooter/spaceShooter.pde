@@ -36,7 +36,7 @@ void setup()
 	size(1280, 800);
 	
 	mainTheme = new SoundFile(this, "assets/MainTheme.wav");
-	playerFireSound = new SoundFile(this, "LC.wav");
+	playerFireSound = new SoundFile(this, "assets/LC.wav");
 	
 	bg = loadImage("assets/spaceBackground.jpg");
 	fiende = loadImage("assets/enemyShip.png");
@@ -66,27 +66,7 @@ void init()
   bullets = new Bullet[100];
   enemyBullets = new EnemyBullet[100];
   enemies = new Enemy[numberofenemies];
-  for(int i = 0; i < enemies.length; i++)
-    {
-      switch (int(random(0,4)))
-      {
-      case 0:
-      enemies[i] = new Enemy(random(width),random(0,1));
-      break;
-      
-      case 1:
-      enemies[i] = new Enemy(random(width),random(height,height-5));
-      break;
-      
-      case 2:
-      enemies[i] = new Enemy(random(0,5),random(height));
-      break;
-     
-      case 3:
-      enemies[i] = new Enemy(random(width,width-5),random(height)); 
-      break;
-      }
-   } 
+  createEnemies();
 	player = new Player();
 textSize(15);
 }
@@ -103,7 +83,11 @@ void draw()
 	player.update();
 	player.draw();
   createPlayerBullets();
+    if (timer >= 3) {
+  createEnemies();
+    }
   createEnemyBullets();
+
   
 
     for (int i = 0; i < enemyBullets.length; i++)

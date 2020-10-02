@@ -111,24 +111,6 @@ void createEnemyBullets()
 
       if(enemies[i] == null)
       {
-      switch (int(random(0,4)))
-      {
-      case 0:
-      enemies[i] = new Enemy(random(width),random(0,1));
-      break;
-      
-      case 1:
-      enemies[i] = new Enemy(random(width),random(height,height-5));
-      break;
-      
-      case 2:
-      enemies[i] = new Enemy(random(0,5),random(height));
-      break;
-     
-      case 3:
-      enemies[i] = new Enemy(random(width,width-5),random(height)); 
-      break;
-      }
         continue;
       }
 
