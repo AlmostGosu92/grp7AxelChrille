@@ -7,6 +7,7 @@ SoundFile playerFireSound;
 SoundFile mainTheme;
 
 PImage fiende;
+PImage start;
 PImage bg;
 PImage playerShip;
 PImage enemyBulletModel;
@@ -38,7 +39,7 @@ void setup()
 	
 	mainTheme = new SoundFile(this, "assets/MainTheme.wav");
 	playerFireSound = new SoundFile(this, "assets/LC.wav");
-	
+	start=loadImage("assets/start.jpg");
 	bg = loadImage("assets/spaceBackground.jpg");
 	fiende = loadImage("assets/enemyShip.png");
 	playerShip = loadImage("assets/playerShip.png");
@@ -62,7 +63,7 @@ noLoop();
 void startScreen()
   {
   gamestate=1;
-  background(bg);
+  background(start);
   textSize(40);
   textAlign(CENTER);
   text("THE MOST INVENTIVE GAME EVER: A LIE",width/2,height/2);
