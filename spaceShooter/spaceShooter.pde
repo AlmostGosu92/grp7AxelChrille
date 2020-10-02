@@ -52,14 +52,22 @@ void setup()
 	
 	ellipseMode(CENTER);
 	//init();
-startScreen();
+  startScreen();
 
 	mainTheme.loop(1, 0.2);
 	
 	timer = 0;
 noLoop();
 }
-
+void startScreen()
+  {
+  gamestate=1;
+  background(bg);
+  textSize(40);
+  textAlign(CENTER);
+  text("THE MOST INVENTIVE GAME EVER: A LIE",width/2,height/2);
+  text("Press 'G' to start",width/2,height/2+60);
+  }
 void init()
 {
   gamestate=2;
@@ -199,10 +207,4 @@ void gameOver()
   text("Press 'r' to reset " ,width/2,height/2+140 );
   noLoop();
   player.dead=true;
-}
-void startScreen()
-{
-  gamestate=1;
-  background(bg);
-  text("Press 'G' to start",width/2,height/2);
 }
