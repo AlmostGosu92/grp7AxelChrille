@@ -20,13 +20,13 @@ void keyPressed()
     moveUp = true;
   else if (keyCode == DOWN || key == 's')
     moveDown = true;
-   if ( key == 'r')
+   if ( key == 'r' && player.dead ==true)
    {
      init();
    }
-  if ( key == 'g')
+  if ( key == 'g' && gamestate==1)
    { 
-     saveFrame();
+     init();
    }
     //if(gravity== false) 
     //  {
@@ -92,6 +92,8 @@ PVector input()
 
 void mousePressed() 
 {
+  if (gamestate ==2)
+  {
   mouseDown = true;
   
   PVector mouseVector = new PVector(mouseX , mouseY);
@@ -106,7 +108,7 @@ void mousePressed()
   }
   playerFireSound.play(1, 0.2);
 }
-
+}
 void mouseReleased() {
   mouseDown = false;
 }

@@ -18,6 +18,7 @@ PVector position;
 PVector velocity;
 PVector gravityVector;
 
+int gamestate=0;
 int numberofenemies =10;
 int score =0;
 int highscore =0;
@@ -50,28 +51,34 @@ void setup()
 	playerMineModel.resize(0,25);
 	
 	ellipseMode(CENTER);
-	init();
+	//init();
+startScreen();
 
 	mainTheme.loop(1, 0.2);
 	
 	timer = 0;
+noLoop();
 }
 
 void init()
 {
-  
-  loop();
+  gamestate=2;
   score=0;
-  //highscore =0;
+  
   bullets = new Bullet[100];
   enemyBullets = new EnemyBullet[100];
   enemies = new Enemy[numberofenemies];
   createEnemies();
 	player = new Player();
-textSize(15);
+  textSize(15);
+  loop();
+  
 }
 
 void draw()
+
+{
+if(gamestate==2)  
 {
 	clearBackground();
 	background(bg);
@@ -169,7 +176,7 @@ void draw()
       text("Score: " + score,width-200,40 );
     time = currentTime;   
 }
-
+}
 void clearBackground()
 {
 
@@ -192,4 +199,10 @@ void gameOver()
   text("Press 'r' to reset " ,width/2,height/2+140 );
   noLoop();
   player.dead=true;
+}
+void startScreen()
+{
+  gamestate=1;
+  background(bg);
+  text("Press 'G' to start",width/2,height/2);
 }
