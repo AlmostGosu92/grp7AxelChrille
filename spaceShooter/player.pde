@@ -1,9 +1,10 @@
-class Player{
-
+class Player
+{
 	PVector position = new PVector(width/2, height/2);
 	PVector acceleration = new PVector();
 	PVector velocity = new PVector();
 	PVector move = new PVector();
+
 	float maxSpeed = 5;
 	float accMult = 45;
 	float deaccMult = 3;
@@ -16,51 +17,57 @@ class Player{
 
 	void draw()
 	{   
-	    push();
-	    translate(position.x, position.y);
-	    float a = move.heading();
+		push();
 
-	    if (velocity.mag() > 0.02)
-	    {
-		    player.move.x = 0;
-    		player.move.y = 0;
-    		rotate(a + (PI/2));
-	    	b = a;
-		} else  {
-	    	rotate(b + (PI/2));
+		translate(position.x, position.y);
+
+		float a = move.heading();
+
+		if (velocity.mag() > 0.02)
+		{
+			player.move.x = 0;
+			player.move.y = 0;
+			rotate(a + (PI/2));
+			b = a;
 		}
-	    image(playerShip, -20, -20);
+		else  
+		{
+			rotate(b + (PI/2));
+		}
 
-	    //(starship, -20, -20,Size*2,Size*2);
-	    
-	    pop();   
+		image(playerShip, -20, -20);
+
+		pop();   
 	}
 	
+
 	void update()
 	{
 		 
 		acceleration = input();
-	    acceleration.mult(accMult * deltaTime);
+		acceleration.mult(accMult * deltaTime);
 
-	    if (acceleration.mag() == 0 )
-	    {
-	    	acceleration.x -= velocity.x * deaccMult * deltaTime;
-	    	acceleration.y -= velocity.y * deaccMult * deltaTime;
-	    }
+		if (acceleration.mag() == 0 )
+		{
+			acceleration.x -= velocity.x * deaccMult * deltaTime;
+			acceleration.y -= velocity.y * deaccMult * deltaTime;
+		}
 
-	    velocity.add(acceleration);
-	    velocity.limit(maxSpeed);
+		velocity.add(acceleration);
+		velocity.limit(maxSpeed);
 
-	    move = velocity.copy();
-	   	move.mult(speed * deltaTime);
-	    position.add(move);
+		move = velocity.copy();
+		move.mult(speed * deltaTime);
+		
+		position.add(move);
 
-	    push();
-	    //translate(position.x,position.y);
+		push();
 
-      	bounce();
+		bounce();
+
 		position.x += velocity.x;
 		position.y += velocity.y;
+		
 		pop();
 	}
 
