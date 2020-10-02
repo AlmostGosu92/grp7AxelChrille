@@ -11,3 +11,4 @@ out
 *.java
 *.class
 build-tmp
+*.autosave
