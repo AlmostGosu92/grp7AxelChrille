@@ -70,5 +70,32 @@ class Bullet
     }
   }*/
 }
-
+void createPlayerBullets()
+{
+  for (int i = 0; i < bullets.length; i++) {
+    if (bullets[i] == null) {
+      //No bullet, skip to the next one.
+      continue;
+    }
+    if (bullets[i].position.x >width || bullets[i].position.x <0)
+    {
+      bullets[i] = null;  
+      continue;
+    }
+    if (bullets[i].position.y >height || bullets[i].position.y <0)
+    {
+    bullets[i] = null;  
+      continue;
+    }
+    if (bullets[i].hashit ==true)
+    {
+      bullets[i] = null;  
+      continue;
+    }
+    else
+    {
+      bullets[i].draw();
+    }
+  }
+}
   
