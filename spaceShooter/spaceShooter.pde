@@ -34,23 +34,27 @@ Player player;
 void setup()
 {
 	size(1280, 800);
+	
+	mainTheme = new SoundFile(this, "assets/MainTheme.wav");
+	playerFireSound = new SoundFile(this, "LC.wav");
+	
 	bg = loadImage("assets/spaceBackground.jpg");
-  fiende = loadImage("assets/enemyShip.png");
-  fiende.resize(0, 40);
-  playerShip = loadImage("assets/playerShip.png");
-  playerShip.resize(0, 40);
+	fiende = loadImage("assets/enemyShip.png");
+	playerShip = loadImage("assets/playerShip.png");
+	enemyBulletModel = loadImage("assets/laserRed.png");
+	playerBulletModel = loadImage("assets/laserGreen.png");
+	playerMineModel = loadImage("assets/laserGreenMine.png");
+	
+	fiende.resize(0, 40);
+	playerShip.resize(0, 40);
+	playerMineModel.resize(0,25);
+	
 	ellipseMode(CENTER);
 	init();
-  mainTheme = new SoundFile(this, "assets/MainTheme.wav");
-  mainTheme.loop(1, 0.2);
-  enemyBulletModel = loadImage("assets/laserRed.png");
-  playerBulletModel = loadImage("assets/laserGreen.png");
-  playerMineModel = loadImage("assets/laserGreenMine.png");
-  playerMineModel.resize(0,25);
-  playerFireSound = new SoundFile(this, "assets/LC.wav");
-  timer = 0;
-  //starship = loadShape("spaceship.svg");
-  
+
+	mainTheme.loop(1, 0.2);
+	
+	timer = 0;
 }
 
 void init()
