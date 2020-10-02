@@ -4,10 +4,10 @@ class Player{
 	PVector acceleration = new PVector();
 	PVector velocity = new PVector();
 	PVector move = new PVector();
-	float maxSpeed = 2000;
+	float maxSpeed = 5;
 	float accMult = 45;
-	float deaccMult = 15;
-	float speed = 500;
+	float deaccMult = 3;
+	float speed = 60;
 	int size = 20;
 	boolean dead = false;
 	float Size = random(20, 25);
@@ -22,8 +22,8 @@ class Player{
 
 	    if (velocity.mag() > 0.02)
 	    {
-		    player.velocity.x = 0;
-    		player.velocity.y = 0;
+		    player.move.x = 0;
+    		player.move.y = 0;
     		rotate(a + (PI/2));
 	    	b = a;
 		} else  {
@@ -39,7 +39,7 @@ class Player{
 	void update()
 	{
 		 
-		 acceleration = input();
+		acceleration = input();
 	    acceleration.mult(accMult * deltaTime);
 
 	    if (acceleration.mag() == 0 )
@@ -56,12 +56,12 @@ class Player{
 	    position.add(move);
 
 	    push();
-	    translate(position.x,position.y);
+	    //translate(position.x,position.y);
 
-		  position.x += velocity.x;
-		  position.y += velocity.y;
-		  pop();
-      bounce();
+      	bounce();
+		position.x += velocity.x;
+		position.y += velocity.y;
+		pop();
 	}
 
 

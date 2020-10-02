@@ -85,7 +85,6 @@ void init()
 }
 
 void draw()
-
 {
 if(gamestate==2)  
 {
@@ -113,6 +112,8 @@ if(gamestate==2)
       {
         playerHit = roundCollision(player.position.x, player.position.y, player.Size,
           enemyBullets[i].position.x, enemyBullets[i].position.y, enemyBullets[i].bulletsize);
+      	//playerHit = roundCollision(player, enemyBullets[i]);
+
       }
       if (playerHit)
       {
