@@ -34,20 +34,20 @@ Player player;
 void setup()
 {
 	size(1280, 800);
-	bg = loadImage("spaceBackground.jpg");
-  fiende = loadImage("enemyShip.png");
+	bg = loadImage("assets/spaceBackground.jpg");
+  fiende = loadImage("assets/enemyShip.png");
   fiende.resize(0, 40);
-  playerShip = loadImage("playerShip.png");
+  playerShip = loadImage("assets/playerShip.png");
   playerShip.resize(0, 40);
 	ellipseMode(CENTER);
 	init();
-  mainTheme = new SoundFile(this, "MainTheme.wav");
+  mainTheme = new SoundFile(this, "assets/MainTheme.wav");
   mainTheme.loop(1, 0.2);
-  enemyBulletModel = loadImage("laserRed.png");
-  playerBulletModel = loadImage("laserGreen.png");
-  playerMineModel = loadImage("laserGreenMine.png");
+  enemyBulletModel = loadImage("assets/laserRed.png");
+  playerBulletModel = loadImage("assets/laserGreen.png");
+  playerMineModel = loadImage("assets/laserGreenMine.png");
   playerMineModel.resize(0,25);
-  playerFireSound = new SoundFile(this, "LC.wav");
+  playerFireSound = new SoundFile(this, "assets/LC.wav");
   timer = 0;
   //starship = loadShape("spaceship.svg");
   
@@ -102,26 +102,26 @@ void draw()
   for (int i = 0; i < bullets.length; i++) {
     if (bullets[i] == null) {
       //No bullet, skip to the next one.
-      continue;
+    	continue;
     }
     if (bullets[i].position.x >width || bullets[i].position.x <0)
     {
-    bullets[i] = null;  
-    continue;
+    	bullets[i] = null;  
+    	continue;
     }
     if (bullets[i].position.y >height || bullets[i].position.y <0)
     {
     bullets[i] = null;  
-    continue;
+    	continue;
     }
     if (bullets[i].hashit ==true)
     {
-    bullets[i] = null;  
-    continue;
+    	bullets[i] = null;  
+    	continue;
     }
     else
     {
-      bullets[i].draw();
+    	bullets[i].draw();
     }
   }
 
