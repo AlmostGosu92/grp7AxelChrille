@@ -1,6 +1,8 @@
 # grp7AxelChrille
 A shootout in space
 
+Projektgenomgång i slutet av readme:n!
+
 ## Filer
 ### Game
 	init(); OK
