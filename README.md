@@ -55,14 +55,26 @@ Projektgenomgång i slutet av readme:n!
 	--blev bekvämare i att jobba med github
 
 ### What was hard? 
-	--Rotatebuggen, en bugg som dels autoroterade skeppet när det låg stilla, samt sen att det flippade på flygläget när man inte hade input men ändå lite fart. Annars hade vi ganska bra flöde många små buggar och klur över småsaker men ändå nöjda. Inget som höll oss låsta i mer än någon timma.
+	--Rotatebuggen, en bugg som dels autoroterade skeppet när det låg stilla.
+	Samt sen att det flippade på flygläget när man inte hade input men ändå lite fart. 
+	Annars hade vi ganska bra flöde många små buggar och klur över småsaker men ändå nöjda.
+	Inget som höll oss låsta i mer än någon timma.
 
 ### What are we most pleased with? 
-	--Att vi pressade ut något! Att vi kom ett litet men viktigt steg närmare målet då vi faktiskt nu gjort ett spel, hur litet det än må vara. Sen många små delsegrar i lösningar som gör att vi är nöjda med projektets genomförande.
+	--Att vi pressade ut något! 
+	Att vi kom ett litet men viktigt steg närmare målet då vi faktiskt nu gjort ett spel.
+	Hur litet det än må vara. 
+	Sen många små delsegrar i lösningar som gör att vi är nöjda med projektets genomförande.
 
 ### How much time did you spend? 
-	Mkt i början, "crunch" måndag, men överlag klara på onsdag och sen polish i mycket lungnare takt, inga krav på varandra utan vi fick undersöka det vi kände för att implementera.
+	Mkt i början, "crunch" måndag. 
+	Men överlag klara på onsdag och sen polish i mycket lungnare takt. 
+	Inga krav på varandra utan vi fick undersöka det vi kände för att implementera.
 
 ### Funny things that happened? bugs? 
-	Skottbuggen som blev minor :) Skotten åkte inte iväg från skeppet när man stod stilla, detta blev till working as intended med "minor" som först bara var stillastående skott, men sen blev implementerat på riktigt. Samt galna rotatebuggen när man stod stilla ovan var rolig och utmanande.
+	Skottbuggen som blev minor :) 
+	Skotten åkte inte iväg från skeppet när man stod stilla.
+	Detta blev till working as intended med "minor" som först bara var stillastående skott.
+	Men sen blev implementerat på riktigt.
+	Samt galna rotatebuggen när man stod stilla ovan var rolig och utmanande.
 
