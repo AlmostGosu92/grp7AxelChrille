@@ -3,6 +3,8 @@ import processing.sound.*;
 SoundFile playerFireSound;
 SoundFile mainTheme;
 
+PFont font;
+
 PImage fiende;
 PImage start;
 PImage bg;
@@ -34,6 +36,7 @@ void setup()
 {
 	size(1280, 800);
 	
+  font = createFont("octin prison rg",40);
 	mainTheme = new SoundFile(this, "assets/MainTheme.wav");
 	playerFireSound = new SoundFile(this, "assets/LC.wav");
 	start=loadImage("assets/start.jpg");
@@ -65,7 +68,7 @@ void startScreen()
 	gamestate=1;
 
 	background(start);
-	textSize(40);
+	textFont(font);
 	textAlign(CENTER);
 	text("THE MOST INVENTIVE GAME EVER: A LIE",width/2,height/2);
 	text("Press 'G' to start",width/2,height/2+60);
