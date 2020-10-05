@@ -36,7 +36,7 @@ void setup()
 {
 	size(1280, 800);
 	
-  font = createFont("octin prison rg",40);
+  	font = createFont("assets/octin prison rg.ttf",40);
 	mainTheme = new SoundFile(this, "assets/MainTheme.wav");
 	playerFireSound = new SoundFile(this, "assets/LC.wav");
 	start=loadImage("assets/start.jpg");
